@@ -1,22 +1,27 @@
-/*
-  presents field types defined in model as form fields
-*/
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
-import { FormFieldBase } from './form-field-base'
+import { FormFieldBase } from './form-field-base';
+import { FormControlService } from './form-control.service';
 
 @Component({
   selector: 'app-dynamic-form',
   templateUrl: './dynamic-form.component.html',
-  styleUrls: ['./dynamic-form.component.css']
+  providers: [ FormControlService ]
 })
-export class DynamicFormComponent  {
-  @Input() field: FormFieldBase<string>;
-  @Input() form: FormGroup;
 
-  get isValid() {
-    return this.form.controls[this.field.key].valid;
+export class DynamicFormComponent implements OnInit {
+  @Input() fields: FormFieldBase<string>[] = [];
+  form: FormGroup;
+  payload = ''
+
+  constructor(private fcs: FormControlService) { }
+
+  ngOnInit() {
+    this.form = this.fcs.toFormGroup(this.fields);
   }
 
+  onSubmit() {
+    this.payload = JSON.stringify(this.form.getRawValue());
+  }
 }

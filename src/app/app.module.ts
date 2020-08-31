@@ -15,14 +15,15 @@ import { MatCardModule } from '@angular/material/card'
 import { MatButtonModule } from '@angular/material/button'
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { DynamicFormComponent } from './dynamic-form/dynamic-form.component'
-
+import { DynamicFormFieldComponent } from './dynamic-form/dynamic-form-field.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     AboutComponent,
-    DynamicFormComponent
+    DynamicFormComponent,
+    DynamicFormFieldComponent
   ],
   imports: [
     BrowserModule,

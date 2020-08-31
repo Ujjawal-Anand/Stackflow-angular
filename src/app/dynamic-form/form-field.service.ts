@@ -11,10 +11,10 @@ import { TextboxField } from './form-field-textbox';
 import { of } from 'rxjs'
 
 @Injectable() 
-export class FOrmFieldService {
+export class FormFieldService {
     getFormFields() {
         const BooleanFormFieldOption = [
-            {key: '', value:''},
+            {key: ' ', value:' '},
             {key: 'True', value: 'true'},
             {key: 'False', value: 'false'}
         ]
