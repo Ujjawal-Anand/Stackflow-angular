@@ -5,6 +5,25 @@
   To learn more about this file see: https://angular.io/config/solution-tsconfig.
 */
 {
+    "compileOnSave": true,
+    "compilerOptions": {
+        "outDir": "./built",
+        "allowJs": true,
+        "target": "es5",
+        "allowUnreachableCode": false,
+        "noImplicitReturns": true,
+        "noImplicitAny": true,
+        "typeRoots": [ "./typings" ],
+        "outFile": "./built/combined.js"
+    },
+    "include": [
+        "./**/*"
+    ],
+    "exclude": [
+        "./plugins/**/*",
+        "./typings/**/*",
+        "./built/**/*" // This is what fixed it!
+    ],
   "references": [
     {
       "path": "./tsconfig.app.json"
@@ -12,9 +31,5 @@
     {
       "path": "./tsconfig.spec.json"
     }
-],
-  "compilerOptions": {
-    "experimentalDecorators": true,
-    "allowJs": true
-  }
+]
 }

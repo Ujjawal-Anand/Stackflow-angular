@@ -1,12 +1,17 @@
 <div [formGroup]="form">
     <label [attr.for]="field.key">{{field.label}}</label>
 
-    <div [ngSwitch]="key.controlType">
+    <div [ngSwitch]="field.controlType">
         <input *ngSwitchCase="'textbox'" [formControlName]="field.key"
             [id]="field.key" [type]="field.type">
 
         <select [id]="field.key" *ngSwitchCase="'dropdown'"
             [formControlName]="field.key">
-            <option *ngFor=""
+            <option *ngFor="let opt of field.options" [value]="opt.key">
+                {{opt.value}}
+            </option>
         </select>
     </div>
+
+    <div class="errorMessagge" *ngIf="!isValid">{{ field.label }} is required</div>
+</div>
