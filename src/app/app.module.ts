@@ -9,7 +9,8 @@ import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 
 import { DynamicFormComponent } from './dynamic-form/dynamic-form.component'
-import { DynamicFormFieldComponent } from './dynamic-form/dynamic-form-field.component'
+import { DynamicFormFieldComponent } from './dynamic-form/dynamic-form-field.component';
+import { DetailComponent } from './detail/detail.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { DynamicFormFieldComponent } from './dynamic-form/dynamic-form-field.com
     HomeComponent,
     AboutComponent,
     DynamicFormComponent,
-    DynamicFormFieldComponent
+    DynamicFormFieldComponent,
+    DetailComponent
   ],
   imports: [
     BrowserModule,

@@ -27,7 +27,7 @@
 
   <div class="twelve wide column">
     <div *ngIf="isLoading" class="ui active centered align big text loader">Loading</div>
-    <div class="ui divided items" *ngIf="payload; else emptyView">
+    <div class="ui divided items" *ngIf="payload.length > 0; else emptyView">
       <div class="item" *ngFor="let question of pagedItems">
         <div class="stats">
           <div class="vote stats-inside">
@@ -64,7 +64,7 @@
         <div class="content">
           <a href="{{ question.link}}" class="ui blue header no-bold spf-link">{{ question.title }}</a>
           <div class="meta">
-            <span class="date">asked {{ question.creation_date }}</span>
+            <span class="date">asked {{ question.creation_date * 1000 | date }}</span>
           </div>
           <div class="extra">
 

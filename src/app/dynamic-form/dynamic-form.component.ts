@@ -16,7 +16,7 @@ import { PageService } from './page.service';
 export class DynamicFormComponent implements OnInit {
   @Input() fields: FormFieldBase<string>[] = [];
   form: FormGroup;
-  payload: any[]
+  payload: any[] = [];
 
   // pager object
   pager: any = {};
@@ -44,6 +44,7 @@ export class DynamicFormComponent implements OnInit {
                   this.payload =  response["items"]
                   this.setPage(1);
                   this.isLoading = false;
+                  console.log(this.payload)
                 },
               (error) => 
               {
@@ -66,17 +67,21 @@ export class DynamicFormComponent implements OnInit {
 
   setPage(page: number) {
     this.isLoading = true;
-    if (page < 1 || page > this.pager.totalPages) {
-      return;
-    }
-
     // get pager object from service
     this.pager = this.pageService
                       .getPager(this.payload.length, page);
+    if (page < 1 || page > this.pager.totalPages) {
+      console.log("returned");
+      console.log(page)
+      return;
+    }
+
+    
     
     // get current page of items
     this.pagedItems = this.payload.slice(this.pager.startIndex,
                                           this.pager.endIndex+1);
+    console.log(this.pagedItems);
     this.isLoading = false; 
   }
 }

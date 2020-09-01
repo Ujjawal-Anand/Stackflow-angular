@@ -49,7 +49,6 @@ export class FormFieldService {
                 key: 'sort',
                 label: 'Sort',
                 value: 'activity',
-                selected: 'activity',
                 options: [
                     {key: 'Activity', value: 'activity'},
                     {key: 'Votes', value: 'votes'},
@@ -62,7 +61,6 @@ export class FormFieldService {
             new DropdownField({
                 key: 'order',
                 label: 'Order',
-                selected: 'asc',
                 options: [
                     {key: 'Ascending', value: 'asc'},
                     {key: 'Descending', value: 'dsc'}
@@ -89,6 +87,7 @@ export class FormFieldService {
             new TextboxField( {
                 key: 'fromdate',
                 label: 'FromDate',
+                type: 'date',
                 value: '',
                 required: false,
                 order: 8
@@ -96,6 +95,7 @@ export class FormFieldService {
 
             new TextboxField( {
                 key: 'views',
+                type: 'number',
                 label: 'Views',
                 value: '',
                 required: false,
@@ -104,6 +104,7 @@ export class FormFieldService {
 
             new TextboxField( {
                 key: 'answers',
+                type: 'number',
                 label: 'Answers',
                 value: '',
                 required: false,
@@ -113,6 +114,7 @@ export class FormFieldService {
             new TextboxField( {
                 key: 'todate',
                 label: 'Todate',
+                type: 'date',
                 value: '',
                 required: false,
                 order: 11
@@ -137,6 +139,7 @@ export class FormFieldService {
             new TextboxField( {
                 key: 'min',
                 label: 'Min',
+                type: 'date',
                 value: '',
                 required: false,
                 order: 14
@@ -145,6 +148,7 @@ export class FormFieldService {
             new TextboxField( {
                 key: 'max',
                 label: 'Max',
+                type: 'date',
                 value: '',
                 required: false,
                 order: 15
@@ -166,6 +170,7 @@ export class FormFieldService {
 
             new TextboxField( {
                 key: 'user',
+                type: 'number',
                 label: 'User',
                 value: '',
                 required: false,
@@ -190,6 +195,7 @@ export class FormFieldService {
             new TextboxField( {
                 key: 'page',
                 label: 'Page',
+                type: 'number',
                 value: '',
                 required: false,
                 order: 21
@@ -198,6 +204,7 @@ export class FormFieldService {
             new TextboxField( {
                 key: 'pagesize',
                 label: 'PageSize',
+                type: 'number',
                 value: '',
                 required: false,
                 order: 22
