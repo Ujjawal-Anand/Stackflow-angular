@@ -14,7 +14,7 @@ import { of } from 'rxjs'
 export class FormFieldService {
     getFormFields() {
         const BooleanFormFieldOption = [
-            {key: ' ', value:' '},
+            {key: '', value:''},
             {key: 'True', value: 'true'},
             {key: 'False', value: 'false'}
         ]
@@ -48,6 +48,8 @@ export class FormFieldService {
             new DropdownField({
                 key: 'sort',
                 label: 'Sort',
+                value: 'activity',
+                selected: 'activity',
                 options: [
                     {key: 'Activity', value: 'activity'},
                     {key: 'Votes', value: 'votes'},
@@ -60,6 +62,7 @@ export class FormFieldService {
             new DropdownField({
                 key: 'order',
                 label: 'Order',
+                selected: 'asc',
                 options: [
                     {key: 'Ascending', value: 'asc'},
                     {key: 'Descending', value: 'dsc'}

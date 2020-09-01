@@ -1,10 +1,23 @@
-<mat-toolbar color="primary">
-  <h1>
-    StackFlow
-  </h1>
-  <button mat-button routerLink="/">Home</button>
-  <button mat-button routerLink="/about">About</button>
 
-</mat-toolbar>
+<div class="page header">
+  <div class="ui container">
+    <div class="ui right floated icon text menu">
+      
+        <div class="item">
+          <a class="spf-link" href=""><b>Sign In</b></a>
+        </div>
+        <div class="item">
+          <a href=""><b>Sign Up</b></a>
+        </div>
+    </div>
 
+    <div class="ui text menu">
+      <a class="icon item spf-link" href="">
+        <i class="big emphasized stack overflow circle icon"></i>
+          <div class="navbar-brand"><a href="/"> Stackflow</a><small> search stackoverflow</small></div>
+      </a>
+      
+      </div>
+    </div>
+  </div>
 <router-outlet></router-outlet>
