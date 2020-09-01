@@ -15,7 +15,8 @@
           </details>
 
           <div class="form-row">
-            <button type="submit" [disabled]="!form.valid" class="ui labeled icon button">
+            <button type="submit" [disabled]="!form.valid" [ngClass]="{loading: isLoading}"
+              class="ui labeled icon button">
               <i class="stack overflow icon"></i>Run
             </button>
           </div>
@@ -23,10 +24,10 @@
       </div>
     </div>
   </div>
+
   <div class="twelve wide column">
-
-
-    <div class="ui divided items" *ngIf="payload">
+    <div *ngIf="isLoading" class="ui active centered align big text loader">Loading</div>
+    <div class="ui divided items" *ngIf="payload; else emptyView">
       <div class="item" *ngFor="let question of pagedItems">
         <div class="stats">
           <div class="vote stats-inside">
@@ -92,29 +93,34 @@
           </div>
         </div>
       </div>
-      <div class="ui divider"></div>
-
-      
+      <!--item closed-->
     </div>
+    <!--items closed-->
     <div class="ui pagination">
+
       <ul *ngIf="pager.pages && pager.pages.length" class="ui small pagination menu">
-        <li [ngClass]="{disabled:pager.currentPage === 1, item: true}">
-            <a (click)="setPage(1)">First</a>
+        <li [ngClass]="{disabled:pager.currentPage === 1}">
+          <a (click)="setPage(1)" class="item">First</a>
         </li>
-        <li [ngClass]="{disabled:pager.currentPage === 1, item: true}">
-            <a (click)="setPage(pager.currentPage - 1)">Previous</a>
+        <li [ngClass]="{disabled:pager.currentPage === 1}">
+          <a (click)="setPage(pager.currentPage - 1)" class="item">Previous</a>
         </li>
-        <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page, item: true}">
-            <a (click)="setPage(page)">{{page}}</a>
+        <li  *ngFor="let page of pager.pages">
+          <a (click)="setPage(page)" [ngClass]="{active:pager.currentPage === page}" class="item">{{page}}</a>
         </li>
-        <li [ngClass]="{disabled:pager.currentPage === pager.totalPages, item: true}">
-            <a (click)="setPage(pager.currentPage + 1)">Next</a>
+        <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+          <a (click)="setPage(pager.currentPage + 1)" class="item">Next</a>
         </li>
-        <li [ngClass]="{disabled:pager.currentPage === pager.totalPages, item: true}">
-            <a (click)="setPage(pager.totalPages)">Last</a>
+        <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+          <a (click)="setPage(pager.totalPages)" class="item">Last</a>
         </li>
-    </ul>
+      </ul>
     </div>
-
-
-    </div>
+    <ng-template #emptyView>
+      <h2 class="ui icon header aligned center">
+        <i class="circular stack overflow icon"></i>
+        StackFlow <br /> <small>{{ headerText }}</small>
+      </h2>
+    </ng-template>
+  </div>
+</div>

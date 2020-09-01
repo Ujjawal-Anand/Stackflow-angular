@@ -22,6 +22,8 @@ export class DynamicFormComponent implements OnInit {
   pager: any = {};
   //paged items
   pagedItems: any[];
+  isLoading: boolean = false;
+  headerText: String = "No Data Found, Search Using Filters"
 
   constructor(private fcs: FormControlService, 
               private http: HttpClient,
@@ -33,7 +35,7 @@ export class DynamicFormComponent implements OnInit {
 
   onSubmit() {
     var formData = this.form.getRawValue();
-    console.log(formData)
+    this.isLoading = true;
     formData['site'] = 'stackoverflow'
 
     this.http.get('https://api.stackexchange.com/2.2/search/advanced?'+this.dictToURI(formData))
@@ -41,9 +43,15 @@ export class DynamicFormComponent implements OnInit {
                 {
                   this.payload =  response["items"]
                   this.setPage(1);
+                  this.isLoading = false;
                 },
-              (error) => console.log(error)
-    )
+              (error) => 
+              {
+                console.log(error)
+                this.isLoading = false;
+                this.headerText = JSON.stringify(error)+"<br/>Please Try Again"
+              }
+    );
   }
 
   dictToURI(dict: any = {}) {
@@ -57,6 +65,7 @@ export class DynamicFormComponent implements OnInit {
   }
 
   setPage(page: number) {
+    this.isLoading = true;
     if (page < 1 || page > this.pager.totalPages) {
       return;
     }
@@ -67,6 +76,7 @@ export class DynamicFormComponent implements OnInit {
     
     // get current page of items
     this.pagedItems = this.payload.slice(this.pager.startIndex,
-                                          this.pager.endIndex+1) 
+                                          this.pager.endIndex+1);
+    this.isLoading = false; 
   }
 }
