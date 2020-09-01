@@ -24,9 +24,6 @@
     "bootstrap": "^4.5.2",
     "jquery": "^3.5.1",
     "rxjs": "~6.5.5",
-    "semantic-ui-css": "^2.4.1",
-    "tsd": "^0.13.1",
-    "tslib": "^2.0.0",
     "underscore": "^1.11.0",
     "zone.js": "~0.10.3"
   },
