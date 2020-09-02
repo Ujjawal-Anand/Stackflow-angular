@@ -1,7 +1,22 @@
 # StackflowAngular
 
+![Live Preview](https://andy1729.github.io/Stackflow-angular)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.8.
 
+## Project Story
+
+I built this as an assignment I received for an interview process
+
+### Assignment Statement
+Please build an Application over StackOverflowAPI for searching questions in Stack Overflow (ref: https://api.stackexchange.com/docs/advanced-search)
+
+**Requirement**
+- [x] Should be able to search all available fields/parameters. 
+- [x] List the result with pagination with AngularJS.
+- [x] Design the page for listing and detail page according to current standards
+- [x] Minimal third-party plugins
+   
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
