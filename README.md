@@ -1,6 +1,14 @@
 # StackflowAngular
+<div align="center">
+  <h1>Stackflow </h1>
+  <img src="screenshots/stackflow-angular_2.png">
+</div>
 
-![Live Preview](https://andy1729.github.io/Stackflow-angular)
+<br >
+<br >
+Live at : https://andy1729.github.io/Stackflow-angular
+
+Django version of same app : https://github.com/andy1729/Stackflow
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.8.
 
@@ -16,6 +24,18 @@ Please build an Application over StackOverflowAPI for searching questions in Sta
 - [x] List the result with pagination with AngularJS.
 - [x] Design the page for listing and detail page according to current standards
 - [x] Minimal third-party plugins
+
+## Screenshots
+
+**Empty View**
+![empty view](screenshots/stackflow-angular_1.png)
+
+**Pagination**
+![Pagination](screenshots/stackflow-angular_3.png)
+**Details Page**
+![Pagination](screenshots/stackflow-angular_4.png)
+**About Page**
+![Pagination](screenshots/stackflow-angular_5.png)
    
 ## Development server
 
